@@ -14,22 +14,21 @@
 #- name: Configure SELinux to start mysql on any port
 #  seboolean: name=mysql_connect_any state=true persistent=yes
 #  when: sestatus.rc != 0
+- name:  Start Mysql Service
+  service: name=mysql state=started enabled=true
 
-- name: Create Mysql configuration file
-  template: src=my.cnf.j2 dest=/etc/my.cnf
-  notify:
-  - restart mysql
+- name: Install python Mysql package
+  apt: name=python-mysqldb state=present
 
-- name: Start Mysql Service
-  service: name=mysql state=started enabled=yes
+- name: Install mysql extension for php
+  apt: name = {{item}} state:present
+  with_items:
+    - php5-mysql
 
-- name: insert iptables rule
-  lineinfile: dest=/etc/sysconfig/iptables state=present regexp="{{ mysql_port }}"
-              insertafter="^:OUTPUT " line="-A INPUT -p tcp  --dport {{ mysql_port }} -j  ACCEPT"
-  notify: restart iptables
+- name:  Create a new database
+  mysql_db: nomdb={{name}} state=present collation=utf8_general_ci
 
-- name: Create Application Database
-  mysql_db: name={{ dbname }} state=present
-
-- name: Create Application DB User
-  mysql_user: name={{ dbuser }} password={{ upassword }} priv=*.*:ALL host='%' state=present
+- name:  Create a database user
+  mysql_user: name={{myname}} password={{mypass}} priv=*.*:ALL host=localhost state=present
+  
+  
