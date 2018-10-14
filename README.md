@@ -18,4 +18,6 @@ los cambios que hay que realizar para migrar un servicio a otro sistama operativ
 #CentOS a UBUNTU
 E identificar las variables que hay que modificar.
 
+Como estudiante de Tecnologia En Sistemas siento que el curso tiene grandes retos, y creo que se pueden superar.
+
 
