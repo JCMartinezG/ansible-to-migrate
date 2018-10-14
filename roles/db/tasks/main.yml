@@ -2,6 +2,10 @@
 # This playbook will install mysql and create db user and give permissions.
 
 - name: Install Mysql package
+#AQUI CAMBIAMOS yum por apt (debido que el primero se utiliza en CentOS,
+#mientras que apt solemos utilizarlo para Debian Linux.
+#APT simplifica en gran medida la instalación y eliminación de programas
+#en los sistemas GNU/Linux. )
   apt: name={{ item }} state=installed
   with_items:
    - mysql-server

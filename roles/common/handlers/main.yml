@@ -2,6 +2,14 @@
 # Handler to handle common notifications. Handlers are called by other plays.
 # See http://docs.ansible.com/playbooks_intro.html for more information about handlers.
 
+
+
+
+#NTP es un protocolo utilizado para sincronizar automáticamente el reloj del sistema
+# informático a través de una red. En CentOS utilizan el comando ntpd pero en Linux
+#se maneja actualmente ntp, en este caso con la instruccion restart ntp reinciamos
+#el servicio de reloj para que este actualizado
+#si no tenemos esta instruccion se perderà la configuracion horaria 
 - name: restart ntp
   service: name=ntp state=restarted
 

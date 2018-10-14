@@ -2,8 +2,15 @@
 # These tasks install http and the php modules.
 
 - name: Install http and php etc
-  yum: name={{ item }} state=present
+#AQUI CAMBIAMOS yum por apt (debido que el primero se utiliza en CentOS,
+#mientras que apt solemos utilizarlo para Debian Linux.
+#APT simplifica en gran medida la instalación y eliminación de programas
+#en los sistemas GNU/Linux. )
+  apt: name={{ item }} state=present
   with_items:
+    # si queremos instalar apache en ubuntu viniendo de CentOS no utilamos
+    # httpd sino apache2 para que el lenguaje lo pueda entender y de esta
+    #forma su instalacion sea exitosa. Donde veamos httpd cambiamos a apache2
    - apache2
    - php
    - php-mysql

@@ -1,7 +1,8 @@
 ---
 # Handler to handle DB tier notifications
 
-- name: restart mysql
+# mysqld es un grupo que contiene variable para el cliente es decir, MYSQL.
+# Utilzams mysql en vez de mysqld porque mysql es quien lee todas las instrucciones
   service: name=mysql state=restarted
 
 - name: restart iptables
