@@ -2,9 +2,9 @@
 # Handler to handle DB tier notifications
 
 # mysqld es un grupo que contiene variable para el cliente es decir, MYSQL.
-# Utilzams mysql en vez de mysqld porque mysql es quien lee todas las instrucciones
-- name: restart mysql
-  service: name=mysql state=restarted
+# Utilzams MariaDB en vez de mysqld porque hubo algunos inconvenientes que no permitieron la instalacion de algunos paquetes
+- name: restart MariaDB
+  service: name=mariadb state=restarted
 
 - name: restart iptables
   service: name=iptables state=restarted
