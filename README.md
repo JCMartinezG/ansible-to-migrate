@@ -1,8 +1,9 @@
 Building a simple LAMP stack and deploying Application using Ansible Playbooks.
 -------------------------------------------
-Si hubiese logrado configurar todo de manera exitosa, el despliegue se harìa con la instruccion:
+Si hubiese logrado configurar todo de manera exitosa, el despliegue se harìa con la instruccion siguiente, entrando a ansible-to-migrate:
 
-        ansible-playbook -i hosts site.yml
+        ansible-playbook -i hosts site.yml 
+        
 
 Tuve algunos inconvenientes, entre ellos la conexion con el SSH, fue el factor principal que me impidió correr todo,
 al principio me funcionó cuando utilizaba el comando:
