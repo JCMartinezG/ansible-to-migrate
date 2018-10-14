@@ -1,4 +1,4 @@
-Building a simple LAMP stack and deploying Application using Ansible Playbooks.
+DESPLIEGUE DE APLICACIONES USANDO ANSIBLE
 -------------------------------------------
 Si hubiese logrado configurar todo de manera exitosa, el despliegue se harìa con la instruccion siguiente, entrando a ansible-to-migrate:
 
